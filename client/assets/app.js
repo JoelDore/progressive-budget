@@ -1,3 +1,4 @@
+const totalEl = document.querySelector("#total");
 let transactions = [];
 let myChart;
 
@@ -20,8 +21,27 @@ function populateTotal() {
     return total + parseFloat(t.value);
   }, 0);
 
-  let totalEl = document.querySelector("#total");
-  totalEl.textContent = total.toFixed(2);
+  totalEl.textContent = formatCurrency(total.toFixed(2));
+  colorTotal(total)
+}
+
+function formatCurrency(num) {
+  return new Intl.NumberFormat("en-US", {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+  }).format(num);
+}
+
+function colorTotal(total) {
+  if (total < 0) {
+    totalEl.classList.remove("total-positive")
+    totalEl.classList.add("total-negative")
+  }
+  else if (total > 0) {
+    totalEl.classList.remove("total-negative")
+    totalEl.classList.add("total-positive")
+  }
 }
 
 function populateTable() {

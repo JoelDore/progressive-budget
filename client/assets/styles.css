@@ -37,6 +37,18 @@ tr:nth-child(even) {
   text-decoration: underline;
 }
 
+.total-positive{
+  text-decoration: inherit;
+  color: green;
+  text-decoration-color: green;
+}
+
+.total-negative{
+  text-decoration: inherit;
+  color: crimson;
+  text-decoration-color: crimson;
+}
+
 .form {
   margin-top: 25px;
   width: 100%;
