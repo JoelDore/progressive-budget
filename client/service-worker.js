@@ -5,8 +5,12 @@ const FILES_TO_CACHE = [
     '/assets/styles.css',
     '/assets/app.js',
     '/assets/indexedDB.js',
-    '/assets/images/icons/icon-192x192.png',
-    '/assets/images/icons/icon-512x512.png',
+    '/assets/images/icons/favicon.ico',
+    '/assets/images/icons/apple-touch-icon.png',
+    '/assets/images/icons/favicon-16x16.png',
+    '/assets/images/icons/favicon-32x32.png',
+    '/assets/images/icons/android-chrome-192x192.png',
+    '/assets/images/icons/android-chrome-512x512.png',
     'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
     'https://cdn.jsdelivr.net/npm/chart.js@2.8.0'
 ];
