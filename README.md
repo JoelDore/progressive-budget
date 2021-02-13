@@ -16,6 +16,7 @@
 * [Features](#Features)  
 * [Installation](#Installation)  
 * [Usage](#Usage)  
+* [Download App](#Download-as-an-app-on-your-mobile-device)  
 * [Technologies](#Technologies-Used)
 * [Contributing](#Contributing)  
 * [Future Scope](#Future-Scope)  
@@ -28,10 +29,10 @@
 - Able to add transactions offline - any offline transactions are stored in browser's indexedDB & automatically posted to database once reconnected
 
 ## Installation
-0. Download project by clicking 
+1. Download project by clicking 
 ![Code button](https://img.shields.io/badge/-%E2%A4%93%20Code%20%E2%8F%B7-brightgreen)
 at the top of this repository, and open project directory in terminal.
-1. Install npm packages: `express mongoose morgan compression`
+2. Install npm packages: `express mongoose morgan compression`
     ```
     npm i
     ```
@@ -39,11 +40,31 @@ at the top of this repository, and open project directory in terminal.
 ## Usage
 Currently deployed with [Heroku](https://jd-budget.herokuapp.com/)
 
-0. Begin by setting a total budget amount and hitting `Add Funds`
-1. Enter a name and dollar amount for a new transaction.
-2. Add or subtract amount using corresponding buttons.
-3. Transaction will be automatically populated in table and graph below.
+1. Begin by setting a total budget amount and hitting `Add Funds`
+2. Enter a name and dollar amount for a new transaction.
+3. Add or subtract amount using corresponding buttons.
+4. Transaction will be automatically populated in table and graph below.
+
     ![Demo](./client/assets/images/screenshot-desktop.jpg)
+
+## Download as an app on your mobile device
+### Android:
+1. Open [https://jd-budget.herokuapp.com/](https://jd-budget.herokuapp.com/)
+in Chrome
+2. Tap the three-dot button on the top right
+3. Select `Add to Home Screen` from the menu
+4. Customize the app name if desired
+5. Open the app that appeared on your home screen
+
+### iOS:
+1. Open [https://jd-budget.herokuapp.com/](https://jd-budget.herokuapp.com/)
+in Safari
+2. Tap the `Share` button in URL bar
+3. Select `Add to Home Screen` from the menu
+4. Customize the app name if desired
+5. Open the app that appeared on your home screen
+
+    ![Demo](./client/assets/images/demo-mobile.gif)
 
 ## Technologies Used
 - [Express](https://expressjs.com/)
