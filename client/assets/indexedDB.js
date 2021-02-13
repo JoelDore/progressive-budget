@@ -1,8 +1,10 @@
+let db;
+
 const request = window.indexedDB.open("budgetTransactions", 1);
 
 request.onupgradeneeded = () => {
 
-    const db = request.result;
+    db = request.result;
 
     // Create a new object store called "pendingTransactions"
     // with an auto-incrementing key
@@ -11,8 +13,21 @@ request.onupgradeneeded = () => {
 
 request.onsuccess = () => {
 
-    const db = request.result;
+    db = request.result;
 
+    if (navigator.onLine) {
+        checkDatabase();
+    }
+}
+
+function saveRecord(record) {
+    const transaction = request.result.transaction("pendingTransactions", "readwrite");
+    const pendingTransactions = transaction.objectStore("pendingTransactions")
+
+    pendingTransactions.add(record)
+}
+
+function checkDatabase() {
     // Open a transaction               /* object store */     /* mode */
     const transaction = db.transaction("pendingTransactions", "readwrite");
 
@@ -36,16 +51,11 @@ request.onsuccess = () => {
             .then(response => response.json())
             .then(() => {
                 // Delete documents from store
-                const transaction = db.transaction("pendingTransactions", "readwrite");     // Do I need to open
-                const pendingTransactions = transaction.objectStore("pendingTransactions"); // this new transaction?
+                const transaction = db.transaction("pendingTransactions", "readwrite");
+                const pendingTransactions = transaction.objectStore("pendingTransactions");
                 pendingTransactions.clear()
             })
     }
 }
 
-function saveRecord(record) {
-    const transaction = request.result.transaction("pendingTransactions", "readwrite");
-    const pendingTransactions = transaction.objectStore("pendingTransactions")
-
-    pendingTransactions.add(record)
-}
+window.addEventListener("online", checkDatabase)
