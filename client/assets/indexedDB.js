@@ -1,14 +1,8 @@
-/**
- * Page is updated when transactions are made offline...
- * These updates do not persist when page is refreshed offline,
- * but the post requests do execute once back online
- */
-
 const request = window.indexedDB.open("budgetTransactions", 1);
 
-request.onupgradeneeded = e => {
+request.onupgradeneeded = () => {
 
-    const db = e.target.result;
+    const db = request.result;
 
     // Create a new object store called "pendingTransactions"
     // with an auto-incrementing key
@@ -42,8 +36,8 @@ request.onsuccess = () => {
             .then(response => response.json())
             .then(() => {
                 // Delete documents from store
-                const transaction = db.transaction("pendingTransactions", "readwrite");
-                const pendingTransactions = transaction.objectStore("pendingTransactions");
+                const transaction = db.transaction("pendingTransactions", "readwrite");     // Do I need to open
+                const pendingTransactions = transaction.objectStore("pendingTransactions"); // this new transaction?
                 pendingTransactions.clear()
             })
     }
